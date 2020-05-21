@@ -46,18 +46,18 @@ def main():
     play_again()
 
 def generate(difficulty, max, highest, operands):
-    i = -1
+    #i = -1
     while True:
-        i += 1
+        #i += 1
         #print("try", i)
         cover, question, question_mc, q_answer, answer = form_equation(max, highest, operands)
         #print(question)
         #print(q_answer)
         if difficulty == 3:
             if str(q_answer).isdigit() == False:
-                j = -1
+                #j = -1
                 while True:
-                    j += 1
+                    #j += 1
                     #print("tryj", j)
                     #print(question)
                     #print(q_answer)
