@@ -1,25 +1,26 @@
 # Switch out vowels for random other vowels (English vowels only)
 
 # SETTINGS − set your file name here
-file = "text_file(vowels).txt"
+input_file = "text_file(vowels).txt"
+output_file = "text_file(vowels)-output.txt"
 vowels = ["a", "e", "i", "o", "u"]
 
 import random
 import os
 
 def main():
-    if os.path.isfile(file) == False:
+    if os.path.isfile(input_file) == False:
         # Create file if not existant
-        create_file = open(file, "a")
+        create_file = open(input_file, "a")
         create_file.close()
         print("File created!")
     else:
-        open_file = open(file, "r") # read file
+        open_file = open(input_file, "r") # read file
         file_data = open_file.readlines()
         open_file.close()
 
         new_data = random_vowels(''.join(file_data)) # randomize vowels
-        write_file = open(file, "w") # write new data to file
+        write_file = open(output_file, "a") # write new data to file
         write_file.write(new_data)
         write_file.close()
 
