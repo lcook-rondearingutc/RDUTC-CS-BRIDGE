@@ -2,7 +2,7 @@ import socket
 
 def main():
     port = getport()
-    print("Client IP: " + socket.gethostbyname(socket.gethostname()))
+    print("Client local IP: " + socket.gethostbyname(socket.gethostname()))
     client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     bindhp = ("", port)
     client.bind(bindhp)

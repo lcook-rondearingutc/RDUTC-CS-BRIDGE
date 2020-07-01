@@ -20,17 +20,17 @@ class Client:
 def main():
     port = getport()
     cport = getcport()
-    print("Server IP: " + socket.gethostbyname(socket.gethostname()))
+    print("Server local IP: " + socket.gethostbyname(socket.gethostname()))
     Server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     bindhp = ("", port)
     Server.bind(bindhp)
     while True:
         recieve, location = Server.recvfrom(10000)
         recieve = recieve.decode('utf-8')
-        if recieve[:5] == "/join":
-            Client.new_client(recieve[5:])
-        elif recieve[:6] == "/leave":
-            Client.old_client(recieve[6:])
+        if recieve == "/join":
+            Client.new_client(location[0])
+        elif recieve == "/leave":
+            Client.old_client(location[0])
         else:
             print(recieve)
             Client.send(recieve, cport)

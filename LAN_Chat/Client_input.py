@@ -5,13 +5,13 @@ def main():
     ip = getip()
     bindhp = (ip, port)
     Server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    join = str("/join" + socket.gethostbyname(socket.gethostname())).encode('utf-8')
+    join = str("/join").encode('utf-8')
     Server.sendto(join, bindhp)
     while True:
         print("\"/leave\" to leave")
         message = input(">>> ")
         if message == "/leave":
-            leave = str("/leave" + socket.gethostbyname(socket.gethostname())).encode('utf-8')
+            leave = str("/leave").encode('utf-8')
             Server.sendto(leave, bindhp)
             break
         else:
