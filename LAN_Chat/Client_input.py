@@ -15,7 +15,7 @@ def main():
             Server.sendto(leave, bindhp)
             break
         else:
-            message = str(socket.gethostbyname(socket.gethostname()) + ": " + message).encode('utf-8')
+            message = str(message).encode('utf-8')
             Server.sendto(message, bindhp)
     Server.close()
 

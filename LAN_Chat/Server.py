@@ -20,7 +20,6 @@ class Client:
 def main():
     port = getport()
     cport = getcport()
-    print("Server local IP: " + socket.gethostbyname(socket.gethostname()))
     Server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     bindhp = ("", port)
     Server.bind(bindhp)
@@ -32,8 +31,9 @@ def main():
         elif recieve == "/leave":
             Client.old_client(location[0])
         else:
-            print(recieve)
-            Client.send(recieve, cport)
+            display = str(location[0] + ": " + recieve)
+            print(display)
+            Client.send(display, cport)
 
 def getport():
     file_port = open("server-port.ini", "r")
